@@ -38,16 +38,28 @@ public class Game extends Application{
 		canvas.setOnKeyPressed(e -> {
 			switch (e.getCode()){
 				case W:
-					player.move(0, -10);
+				case UP:
+					if (player.getY() > 0){
+						player.move(0, -10);
+					}
 					break;
 				case A:
-					player.move(-10, 0);
+				case LEFT:
+					if (player.getX() > 0){
+						player.move(-10, 0);
+					}
 					break;
 				case S:
-					player.move(0, 10);
+				case DOWN:
+					if (player.getY() < 450){
+						player.move(0, 10);
+					}
 					break;
 				case D:
-					player.move(10, 0);
+				case RIGHT:
+					if (player.getX() < 450){
+						player.move(10, 0);
+					}
 					break;
 			}
 		});
@@ -63,7 +75,7 @@ public class Game extends Application{
 			System.exit(0);
 		}
 		Socket socket = new Socket(args[0], Integer.parseInt(args[1]));
-		System.out.println("Connected to "+args[0]+":"+args[1]+".");
+		System.out.println("Connected to "+args[0]+":"+args[1]+". Use WASD or ARROWS to move around.");
 		player = new Player(socket, args[2], Integer.parseInt(args[3]), Integer.parseInt(args[4]), args[5]);
 		launch(args);
 	}

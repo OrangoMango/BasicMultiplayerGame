@@ -42,6 +42,14 @@ public class Player{
 		return this.name;
 	}
 	
+	public int getX(){
+		return this.x;
+	}
+	
+	public int getY(){
+		return this.y;
+	}
+	
 	public void move(int sx, int sy){
 		this.x += sx;
 		this.y += sy;
