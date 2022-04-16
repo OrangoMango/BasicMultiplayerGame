@@ -17,13 +17,13 @@ public class PlayerManager implements Runnable {
 			this.reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			this.writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 			players.add(this);
-			System.out.println(this+" connected");
 			String name = reader.readLine();
 			int x = Integer.parseInt(reader.readLine());
 			int y = Integer.parseInt(reader.readLine());
 			String color = reader.readLine();
 			this.state = new Server.ServerState.PlayerState(name, x, y, color);
 			Server.state.add(this.state);
+			System.out.println(toString()+" connected");
 			broadcast();
 		} catch (IOException e){
 			close();
@@ -48,7 +48,7 @@ public class PlayerManager implements Runnable {
 				players.remove(this);
 				Server.state.remove(this.state);
 				broadcast();
-				System.out.println(this+" disconnected");
+				System.out.println(toString()+" disconnected");
 			}
 			if (this.socket != null) this.socket.close();
 			if (this.reader != null) this.reader.close();
@@ -56,6 +56,11 @@ public class PlayerManager implements Runnable {
 		} catch (IOException e){
 			e.printStackTrace();
 		}
+	}
+	
+	@Override
+	public String toString(){
+		return this.socket.getInetAddress().getHostAddress()+":"+this.socket.getLocalPort()+"["+this.state.user+"]";
 	}
 	
 	@Override

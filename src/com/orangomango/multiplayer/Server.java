@@ -101,8 +101,12 @@ public class Server {
 	}
 	
 	public static void main(String[] args) throws IOException{
-		ServerSocket ss = new ServerSocket(1234);
-		System.out.println("Server started.");
+		if (args.length < 2){
+			System.out.println("usage: Server <host> <port>");
+			return;
+		}
+		ServerSocket ss = new ServerSocket(Integer.parseInt(args[1]), 10, InetAddress.getByName(args[0]));
+		System.out.println("Server started at "+args[0]+":"+args[1]+".");
 		Server server = new Server(ss);
 		server.start();
 	}

@@ -58,8 +58,13 @@ public class Game extends Application{
 	}
 	
 	public static void main(String[] args) throws IOException{
-		Socket socket = new Socket("localhost", 1234);
-		player = new Player(socket, args[0], Integer.parseInt(args[1]), Integer.parseInt(args[2]), args[3]);
+		if (args.length < 6){
+			System.out.println("usage: Game <host> <port> <username> <xPos> <yPos> <color>");
+			System.exit(0);
+		}
+		Socket socket = new Socket(args[0], Integer.parseInt(args[1]));
+		System.out.println("Connected to "+args[0]+":"+args[1]+".");
+		player = new Player(socket, args[2], Integer.parseInt(args[3]), Integer.parseInt(args[4]), args[5]);
 		launch(args);
 	}
 }
