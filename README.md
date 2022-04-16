@@ -24,5 +24,7 @@ Connect a player:
 java --module-path $FX_PATH --add-modules javafx.controls com.orangomango.multiplayer.Game <host> <port> <userName> <xPos> <yPos> <web-color>
 ```
 For example: `java --module-path $FX_PATH --add-modules javafx.controls com.orangomango.multiplayer.Game 127.0.0.1 1234 Paul 200 200 "#ff3333"`
+## Controls
+Use <Kbd>W</Kbd><Kbd>A</Kbd><Kbd>S</Kbd><Kbd>D</Kbd> to move the player
 ## Screenshot
 ![multi](https://user-images.githubusercontent.com/61402409/163669871-cec914d8-7b81-428d-a057-ede11963e4e9.png)
