@@ -27,4 +27,5 @@ For example: `java --module-path $FX_PATH --add-modules javafx.controls com.oran
 ## Controls
 Use <Kbd>W</Kbd><Kbd>A</Kbd><Kbd>S</Kbd><Kbd>D</Kbd> or arrow keys to move the player
 ## Screenshot
-![multi](https://user-images.githubusercontent.com/61402409/163669871-cec914d8-7b81-428d-a057-ede11963e4e9.png)
+![multi](https://user-images.githubusercontent.com/61402409/163718305-ebf5a9d3-2aab-4d4e-bd29-56c1a4b0e78d.png)
+
