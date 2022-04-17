@@ -107,7 +107,6 @@ public class Player{
 					if (data == null){
 						throw new IOException("Connection lost");
 					}
-					System.out.println("Recv data: "+data);
 					if (data.startsWith("server_message:")){
 						System.out.println(data.split(":", 2)[1]);
 						continue;
@@ -130,7 +129,6 @@ public class Player{
 									}
 								}, 300);
 								update();
-								System.out.println("removing hp: "+this.hp);
 								if (this.hp <= 0){
 									System.out.println("["+Instant.now().toString()+"] You died!");
 									close();
