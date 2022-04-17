@@ -18,12 +18,26 @@ public class Game extends Application{
 		gc.clearRect(0, 0, 500, 500);
 		gc.setFill(Color.ORANGE);
 		gc.fillRect(0, 0, 500, 500);
+		for (Server.ServerState.BarState s : player.state.getBarStates()){
+			gc.setStroke(Color.BLACK);
+			if (s.direction.equals("n") || s.direction.equals("s")){
+				gc.strokeLine(0, s.point, 500, s.point);
+			} else if (s.direction.equals("e") || s.direction.equals("w")){
+				gc.strokeLine(s.point, 0, s.point, 500);
+			}
+		}
+		gc.setLineWidth(3);
 		for (Server.ServerState.PlayerState s : player.state.getStates()){
 			gc.setFill(Color.web(s.color));
-			gc.fillRect(s.x, s.y, 50, 50);
+			gc.fillRect(s.x, s.y, s.w, s.w);
 			gc.setFill(Color.BLACK);
-			gc.fillText(s.user, s.x, s.y-5);
+			gc.fillText(s.user+"("+s.hp+")", s.x+s.w/10, s.y-5);
 		}
+		// Draw hp bar
+		gc.setFill(Color.LIME);
+		gc.fillRect(10, 10, 100*player.hp/100, 20);
+		gc.setStroke(Color.BLUE);
+		gc.strokeRect(10, 10, 100, 20);
 	}
 	
 	@Override
@@ -60,6 +74,13 @@ public class Game extends Application{
 					if (player.getX() < 450){
 						player.move(10, 0);
 					}
+					break;
+			}
+		});
+		canvas.setOnKeyReleased(e -> {
+			switch (e.getCode()){
+				case SPACE:
+					player.jump();
 					break;
 			}
 		});
