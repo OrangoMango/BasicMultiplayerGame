@@ -25,7 +25,7 @@ java --module-path $FX_PATH --add-modules javafx.controls com.orangomango.multip
 ```
 For example: `java --module-path $FX_PATH --add-modules javafx.controls com.orangomango.multiplayer.Game 127.0.0.1 1234 Paul 200 200 "#ff3333"`
 ## Controls
-Use <Kbd>W</Kbd><Kbd>A</Kbd><Kbd>S</Kbd><Kbd>D</Kbd> or arrow keys to move the player
+Use <Kbd>W</Kbd><Kbd>A</Kbd><Kbd>S</Kbd><Kbd>D</Kbd> or arrow keys to move the player and <Kbd>SPACE</Kbd> to jump. **Avoid the bars**
 ## Screenshot
 ![multi](https://user-images.githubusercontent.com/61402409/163718305-ebf5a9d3-2aab-4d4e-bd29-56c1a4b0e78d.png)
 
