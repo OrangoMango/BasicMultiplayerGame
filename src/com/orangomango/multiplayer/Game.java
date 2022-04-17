@@ -96,7 +96,7 @@ public class Game extends Application{
 			System.exit(0);
 		}
 		Socket socket = new Socket(args[0], Integer.parseInt(args[1]));
-		System.out.println("Connected to "+args[0]+":"+args[1]+". Use WASD or ARROWS to move around.");
+		System.out.println("Connected to "+args[0]+":"+args[1]+". Use WASD or ARROWS to move around and SPACE to jump.");
 		player = new Player(socket, args[2], Integer.parseInt(args[3]), Integer.parseInt(args[4]), args[5]);
 		launch(args);
 	}

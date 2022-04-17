@@ -7,6 +7,7 @@ import javafx.util.Duration;
 import java.net.*;
 import java.io.*;
 import java.util.*;
+import java.time.Instant;
 
 public class Player{
 	
@@ -38,6 +39,13 @@ public class Player{
 			this.writer.write(this.color);
 			this.writer.newLine();
 			this.writer.flush();
+			this.takingDamage = true;
+			new Timer().schedule(new TimerTask(){
+				@Override
+				public void run(){
+					takingDamage = false;
+				}
+			}, 1000); // Temp shield (1s) on start
 		} catch (IOException e){
 			close();
 		}
@@ -124,6 +132,7 @@ public class Player{
 								update();
 								System.out.println("removing hp: "+this.hp);
 								if (this.hp <= 0){
+									System.out.println("["+Instant.now().toString()+"] You died!");
 									close();
 									break;
 								}
