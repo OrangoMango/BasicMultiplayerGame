@@ -45,7 +45,7 @@ public class Player{
 				public void run(){
 					takingDamage = false;
 				}
-			}, 1000); // Temp shield (1s) on start
+			}, 2500); // Temp shield (2.5s) on start
 		} catch (IOException e){
 			close();
 		}
@@ -120,7 +120,7 @@ public class Player{
 					if (!this.jumping && !this.takingDamage){
 						for (Server.ServerState.BarState bs : this.state.getBarStates()){
 							if ((bs.point >= this.x && bs.point <= this.x && (bs.direction.equals("e") || bs.direction.equals("w"))) || (bs.point >= this.y && bs.point <= this.y && (bs.direction.equals("n") || bs.direction.equals("s")))){
-								this.hp -= 20;
+								this.hp -= 7;
 								this.takingDamage = true;
 								new Timer().schedule(new TimerTask(){
 									@Override
